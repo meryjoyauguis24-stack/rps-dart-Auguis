@@ -127,8 +127,14 @@ void main() {
       '$playerTwo: $playerTwoScore',
     );
 
-    stdout.write('Play again? (y/n): ');
-    playAgain = stdin.readLineSync()?.trim().toLowerCase();
+    do {
+      stdout.write('Play again? (y/n): ');
+      playAgain = stdin.readLineSync()?.trim().toLowerCase();
+
+      if (playAgain != 'y' && playAgain != 'n') {
+        print('Please enter y or n.');
+      }
+    } while (playAgain != 'y' && playAgain != 'n');
 
     round++;
   } while (playAgain == 'y');
